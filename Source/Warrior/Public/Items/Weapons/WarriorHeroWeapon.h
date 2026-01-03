@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Items/Weapons/WarriorWeaponBase.h"
 #include "Warrior/Types/WarriorStructTypes.h"
+#include "GameplayAbilitySpecHandle.h"
 #include "WarriorHeroWeapon.generated.h"
 
 /**
@@ -19,4 +20,14 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponData")
 	FWarriorHeroWeaponData HeroWeaponData;
+
+	UFUNCTION(BlueprintCallable)
+	void AssignGrantedAbilitySpecHandles(const TArray<FGameplayAbilitySpecHandle>& InSpecHandle);
+
+	UFUNCTION(BlueprintCallable)
+	TArray<FGameplayAbilitySpecHandle> GetGrantedAbilitySpecHandles() const;
+
+private:
+
+	TArray<FGameplayAbilitySpecHandle> GrantedAbilitySpecHandles;
 };
